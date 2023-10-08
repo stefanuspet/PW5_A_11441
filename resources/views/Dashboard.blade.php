@@ -32,7 +32,7 @@
             <ul class="navbar-nav ml-auto ">
                 <!-- Navbar Search -->
                 <li class="nav-item d-flex align-items-center">
-                    <button class="btn btn-sm btn-danger">
+                    <button class="btn btn-sm btn-danger" data-bs-target="#konfirmasiLogoutModal" data-bs-toggle="modal">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </button>
                     <div class="navbar-search-block">
@@ -58,6 +58,22 @@
                 </li>
             </ul>
         </nav>
+        <div>
+            <div class="modal" id="konfirmasiLogoutModal">
+                <div class="modal-dialog modal-dialog-centered text-white" style="width: 20rem;">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h4 class="modal-title fs-5 fw-bold">Apakah Ingin Logout?</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex justify-content-end gap-2">
+                            <a type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" aria-label="Close">Batal</a>
+                            <a href="/" class="btn btn-danger">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -97,13 +113,19 @@
                                 <p> Home</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('gyms/presensi') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p> Presensi Member</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
-        17<!-- Content Wrapper. Contains page content -->
+        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
         </div>
@@ -126,6 +148,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
+    <!-- toastbtn boostrap -->
+    <script>
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+                toastTrigger.style.backgroundColor = '#198754'
+            })
+        }
+    </script>
 </body>
 
 </html>

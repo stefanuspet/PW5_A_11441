@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,6 +54,67 @@ Route::get('/gyms', function () {
                 'ruang' => 'Kelas D',
                 'rating' => '5',
             ]
+        ]
+    ]);
+});
+
+Route::get('/gyms/presensi', function () {
+    return view('Gyms/presensi', [
+        'kelas' => [
+            "title" => "Body Combat ",
+            "instruktur" => "Stepanus Petra ",
+            "ruang" => "Kelas A ",
+            "total_member" => "6",
+        ],
+        "member" => [
+            [
+                "nama" => "Caturangga Hutagalung",
+                "email" => "Caturangga@gmail.com",
+                "notelp" => "081234567890",
+                "jenisCard" => "Gold",
+                "metodePembayaran" => "Deposit Kelas"
+            ],
+            [
+                "nama" => "Rizky Ramadhan",
+                "email" => "Rizky@gmail.com",
+                "notelp" => "081234567890",
+                "jenisCard" => "Silver",
+                "metodePembayaran" => "Deposit Uang"
+            ],
+            [
+                "nama" => "Iqbal Ramadhan",
+                "email" => "Iqbal@gmail.com",
+                "notelp" => "081234567890",
+                "jenisCard" => "Black",
+                "metodePembayaran" => "Deposit Kelas"
+            ],
+            [
+                "nama" => "Usman Pradana",
+                "email" => "Usman@gmail.com",
+                "notelp" => "081234567890",
+                "jenisCard" => "Black",
+                "metodePembayaran" => "Deposit Uang"
+            ],
+            [
+                "nama" => "Estiawan Dongoran",
+                "email" => "Estiawan@gmail.com",
+                "notelp" => "081234567890",
+                "jenisCard" => "Gold",
+                "metodePembayaran" => "Deposit Kelas"
+            ],
+            [
+                "nama" => "Balidin Halim",
+                "email" => "Balidin@gmail.com",
+                "notelp" => "081234567890",
+                "jenisCard" => "Silver",
+                "metodePembayaran" => "Deposit Uang"
+            ],
+        ],
+        "eye" => [
+            "title" => "Body Combat ",
+            "instruktur" => "Stepanus Petra Pambudi",
+            "kode" => "210711441",
+            "ruang" => "Kelas A ",
         ]
     ]);
 });
